@@ -26,11 +26,6 @@ public class Player : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collider)
     {
-        if(SettingsManager.VibraEnable)
-        {
-            Handheld.Vibrate();
-        }
-
         BallCollected?.Invoke();
         Destroy(collider.gameObject);
         GameManager.Instance.uiManager.UpdateScore();
