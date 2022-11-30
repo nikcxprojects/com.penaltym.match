@@ -7,7 +7,7 @@ public class Switcher : MonoBehaviour
 {
     private const float swithDuration = 0.1f;
 
-    private bool Enable { get; set; }
+    private bool Enable { get; set; } = true;
     private Button Button { get; set; }
 
     private Image Image { get; set; }
@@ -23,12 +23,13 @@ public class Switcher : MonoBehaviour
     private Color disableColorHandler;
 
     private const string activeSwither = "#245407";
-    private const string activeHandler = "#245407";
+    private const string activeHandler = "#4F8A2B";
 
     private const string disableSwither = "#414141";
-    private const string disableHandler = "#414141";
+    private const string disableHandler = "#818181";
 
-    [SerializeField] AudioSource targetSource;
+    private AudioSource targetSource;
+    [SerializeField] string targetSourceName;
 
     private void Awake()
     {
@@ -42,6 +43,8 @@ public class Switcher : MonoBehaviour
 
         ColorUtility.TryParseHtmlString(disableSwither, out disableColorSwithcer);
         ColorUtility.TryParseHtmlString(disableHandler, out disableColorHandler);
+
+        targetSource = GameObject.Find(targetSourceName).GetComponent<AudioSource>();
     }
 
     private void Start()
@@ -58,6 +61,18 @@ public class Switcher : MonoBehaviour
 
             StartCoroutine(nameof(Switch));
         });
+
+        targetSource.mute = !Enable;
+
+        Image.color = Enable ? activeColorSwithcer : disableColorSwithcer;
+        Handler.color = Enable ? activeColorHandler : disableColorHandler;
+
+        float xTarget = Enable ? xMax : xMin;
+
+        Vector2 v2Current = Handler.transform.localPosition;
+        Vector2 v2Target = new Vector2(xTarget, v2Current.y);
+
+        Handler.transform.localPosition = v2Target;
     }
 
     private IEnumerator Switch()
@@ -80,6 +95,8 @@ public class Switcher : MonoBehaviour
             et += Time.deltaTime;
             yield return null;
         }
+
+        Handler.transform.localPosition = v2Target;
 
         et = 0;
     }
