@@ -25,5 +25,12 @@ public class Game : MonoBehaviour
         Transform parent = GameObject.Find("Environment").transform;
 
         Instantiate(playerPrefab, position, rotation, parent);
+
+        Ball ballPrefab = Resources.Load<Ball>("ball");
+
+        position = new Vector2(0, 6.88f);
+        rotation = Quaternion.Euler(Vector3.zero);
+
+        Instantiate(ballPrefab, position, rotation, parent);
     }
 }
