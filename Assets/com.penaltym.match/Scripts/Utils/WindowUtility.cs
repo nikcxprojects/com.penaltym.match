@@ -1,9 +1,10 @@
+using System;
 using UnityEngine;
 
 public static class WindowUtility
 {
-    public static void TryGetWindow(string window, out GameObject refWindow)
+    public static void TryGetWindow(string window, Action<GameObject> callback)
     {
-        refWindow = Resources.Load<GameObject>($"UI/{window}");
+        callback?.Invoke(Resources.Load<GameObject>($"UI/{window}"));
     }
 }

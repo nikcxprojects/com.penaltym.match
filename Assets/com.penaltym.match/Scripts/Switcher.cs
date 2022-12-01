@@ -7,7 +7,7 @@ public class Switcher : MonoBehaviour
 {
     private const float swithDuration = 0.1f;
 
-    private bool Enable { get; set; } = true;
+    private bool Enable { get; set; }
     private Button Button { get; set; }
 
     private Image Image { get; set; }
@@ -33,6 +33,8 @@ public class Switcher : MonoBehaviour
 
     private void Awake()
     {
+        Enable = PlayerPrefs.GetInt(targetSourceName) > 0;
+
         Image = GetComponent<Image>();
         Handler = transform.GetChild(0).GetComponent<Image>();
 
@@ -78,6 +80,10 @@ public class Switcher : MonoBehaviour
     private IEnumerator Switch()
     {
         Enable = !Enable;
+
+        PlayerPrefs.SetInt(targetSourceName, Enable ? 1 : 0);
+        PlayerPrefs.Save();
+
         targetSource.mute = !Enable;
 
         Image.color = Enable ? activeColorSwithcer : disableColorSwithcer;

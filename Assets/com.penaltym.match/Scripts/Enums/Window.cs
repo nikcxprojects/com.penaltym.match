@@ -1,4 +1,4 @@
-public static class Window
+public class Window
 {
     public static string Menu { get => "Menu"; }
     public static string Settings { get => "Settings"; }
