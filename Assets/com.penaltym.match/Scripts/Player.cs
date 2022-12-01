@@ -24,6 +24,7 @@ public class Player : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         collision.rigidbody.AddForce(Vector2.up * 6, ForceMode2D.Impulse);
+        Instantiate(Resources.Load<GameObject>("hit"), collision.GetContact(0).point, Quaternion.identity, GameObject.Find("Environment").transform);
         OnCollided?.Invoke();
     }
 }
