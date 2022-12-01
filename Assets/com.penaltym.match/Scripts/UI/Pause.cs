@@ -7,8 +7,10 @@ public class Pause : MonoBehaviour
 
     private void Start()
     {
+        Ball.Sleep();
         resumeBtn.onClick.AddListener(() =>
         {
+            Ball.WakeUp();
             Destroy(gameObject);
         });
     }

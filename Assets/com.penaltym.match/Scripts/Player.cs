@@ -17,4 +17,9 @@ public class Player : MonoBehaviour
         target = new Vector2(_camera.ScreenToWorldPoint(Input.mousePosition).x, transform.position.y);
         transform.position = Vector2.MoveTowards(transform.position, target, speed * Time.deltaTime);
     }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        collision.rigidbody.AddForce(Vector2.up * 8, ForceMode2D.Impulse);
+    }
 }
