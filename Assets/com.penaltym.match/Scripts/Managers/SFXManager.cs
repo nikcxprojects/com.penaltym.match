@@ -4,6 +4,10 @@ public class SFXManager : MonoBehaviour
 {
     [SerializeField] AudioSource sfxSource;
 
+    [Space(10)]
+    [SerializeField] AudioClip hitClip;
+    [SerializeField] AudioClip gameOverClip;
+
     private void Awake()
     {
         Player.OnCollided += () =>
@@ -13,7 +17,17 @@ public class SFXManager : MonoBehaviour
                 sfxSource.Stop();
             }
 
-            sfxSource.Play();
+            sfxSource.PlayOneShot(hitClip);
         };
+    }
+
+    public void GameOver()
+    {
+        if (sfxSource.isPlaying)
+        {
+            sfxSource.Stop();
+        }
+
+        sfxSource.PlayOneShot(gameOverClip);
     }
 }

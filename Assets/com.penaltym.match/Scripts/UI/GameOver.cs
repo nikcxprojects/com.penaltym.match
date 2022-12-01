@@ -7,6 +7,7 @@ public class GameOver : MonoBehaviour
 
     private void Start()
     {
+        FindObjectOfType<SFXManager>().GameOver();
         restartBtn.onClick.AddListener(() =>
         {
             UIManager.OpenWindow(Window.Game);
