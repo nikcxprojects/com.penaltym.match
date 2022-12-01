@@ -24,7 +24,9 @@ public class Game : MonoBehaviour
     private void OnCollidedEvent()
     {
         scoreText.text = $"{++score}";
+
         ScoreUtility.CurrentScore = score;
+        ScoreUtility.BestScore = score;
     }
 
     private void Start()
