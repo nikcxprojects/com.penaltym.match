@@ -24,6 +24,7 @@ public class Game : MonoBehaviour
     private void OnCollidedEvent()
     {
         scoreText.text = $"{++score}";
+        ScoreUtility.CurrentScore = score;
     }
 
     private void Start()
