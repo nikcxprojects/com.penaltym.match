@@ -4,10 +4,17 @@ public class Ball : MonoBehaviour
 {
     private static Vector2 Velocity { get; set; }
     private static Rigidbody2D Rigidbody2D { get; set; }
+    private static SpriteRenderer SpriteRenderer { get; set; }
 
     private void Awake()
     {
         Rigidbody2D = GetComponent<Rigidbody2D>();
+        SpriteRenderer = GetComponent<SpriteRenderer>();
+    }
+
+    private void OnEnable()
+    {
+        UpdateBall();
     }
 
     public static void Sleep()
@@ -20,5 +27,12 @@ public class Ball : MonoBehaviour
     {
         Rigidbody2D.WakeUp();
         Rigidbody2D.velocity = Velocity;
+
+        UpdateBall();
+    }
+
+    private static void UpdateBall()
+    {
+        SpriteRenderer.sprite = Resources.Load<Sprite>($"Balls/{PlayerPrefs.GetInt(Balls.BallKey)}");
     }
 }

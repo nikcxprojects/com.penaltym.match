@@ -3,7 +3,13 @@ using UnityEngine;
 
 public class Balls : MonoBehaviour
 {
+    public static string BallKey { get => "ball"; }
+
     [SerializeField] Button backBtn;
+
+    [Space(10)]
+    [SerializeField] Transform balls;
+    [SerializeField] Transform hover;
 
     private void Start()
     {
@@ -11,5 +17,13 @@ public class Balls : MonoBehaviour
         {
             Destroy(gameObject);
         });
+
+        foreach (Transform ball in balls)
+        {
+            ball.GetComponent<Button>().onClick.AddListener(() =>
+            {
+                PlayerPrefs.SetInt(BallKey, ball.GetSiblingIndex());
+            });
+        }
     }
 }
