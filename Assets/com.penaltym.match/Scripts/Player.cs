@@ -13,11 +13,16 @@ public class Player : MonoBehaviour
     private void Awake()
     {
         _camera = Camera.main;
+        target = transform.position;
+    }
+
+    private void OnMouseDrag()
+    {
+        target = new Vector2(_camera.ScreenToWorldPoint(Input.mousePosition).x, transform.position.y);
     }
 
     private void Update()
     {
-        target = new Vector2(_camera.ScreenToWorldPoint(Input.mousePosition).x, transform.position.y);
         transform.position = Vector2.MoveTowards(transform.position, target, speed * Time.deltaTime);
     }
 
