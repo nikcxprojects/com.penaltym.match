@@ -731,7 +731,7 @@ GameObject:
   - component: {fileID: 4231622063690480628}
   - component: {fileID: 4231622063690480629}
   m_Layer: 0
-  m_Name: game over
+  m_Name: Game Over
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
