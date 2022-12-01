@@ -1033,15 +1033,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62b8a0dd5f8b48b4fb3158984ca3ef13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  menu: {fileID: 0}
-  options: {fileID: 0}
-  game: {fileID: 0}
-  pause: {fileID: 0}
-  result: {fileID: 0}
-  border: {fileID: 0}
-  scoreText: {fileID: 0}
-  finalScoreText: {fileID: 0}
-  timerText: {fileID: 0}
 --- !u!1 &1710432193
 GameObject:
   m_ObjectHideFlags: 0

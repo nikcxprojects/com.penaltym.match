@@ -17,5 +17,13 @@ public class Game : MonoBehaviour
         {
             UIManager.OpenWindow(Window.Settings);
         });
+
+        Player playerPrefab = Resources.Load<Player>("player");
+
+        Vector2 position = new Vector2(0, -3.42f);
+        Quaternion rotation = Quaternion.Euler(Vector3.zero);
+        Transform parent = GameObject.Find("Environment").transform;
+
+        Instantiate(playerPrefab, position, rotation, parent);
     }
 }
