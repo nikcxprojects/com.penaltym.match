@@ -599,6 +599,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settingsBtn: {fileID: 2210517158086167109}
   startBtn: {fileID: 2210517158797116136}
+  menuBall: {fileID: 2210517158364910294}
   bestScoreText: {fileID: 2210517157633324795}
 --- !u!1 &2210517158139752643
 GameObject:

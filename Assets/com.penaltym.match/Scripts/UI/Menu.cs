@@ -7,6 +7,9 @@ public class Menu : MonoBehaviour
     [SerializeField] Button startBtn;
 
     [Space(10)]
+    [SerializeField] Image menuBall;
+
+    [Space(10)]
     [SerializeField] Text bestScoreText;
 
     private void Start()
@@ -21,5 +24,12 @@ public class Menu : MonoBehaviour
             Destroy(FindObjectOfType<Menu>().gameObject);
             UIManager.OpenWindow(Window.Game);
         });
+
+        UpdateMenuBall();
+    }
+
+    public void UpdateMenuBall()
+    {
+        menuBall.sprite = Resources.Load<Sprite>($"Balls/{PlayerPrefs.GetInt(Balls.BallKey)}");
     }
 }

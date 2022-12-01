@@ -28,6 +28,8 @@ public class Balls : MonoBehaviour
 
                 PlayerPrefs.SetInt(BallKey, ball.GetSiblingIndex());
                 PlayerPrefs.Save();
+
+                FindObjectOfType<Menu>()?.UpdateMenuBall();
             });
         }
     }
