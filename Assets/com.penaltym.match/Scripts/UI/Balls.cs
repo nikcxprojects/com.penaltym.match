@@ -18,11 +18,16 @@ public class Balls : MonoBehaviour
             Destroy(gameObject);
         });
 
+        hover.transform.position = balls.GetChild(PlayerPrefs.GetInt(BallKey)).position;
+
         foreach (Transform ball in balls)
         {
             ball.GetComponent<Button>().onClick.AddListener(() =>
             {
+                hover.position = ball.position;
+
                 PlayerPrefs.SetInt(BallKey, ball.GetSiblingIndex());
+                PlayerPrefs.Save();
             });
         }
     }
