@@ -7,10 +7,18 @@ public class Pause : MonoBehaviour
 
     private void Start()
     {
-        Ball.Sleep();
+        if (FindObjectOfType<Ball>() != null)
+        {
+            Ball.Sleep();
+        }
+
         resumeBtn.onClick.AddListener(() =>
         {
-            Ball.WakeUp();
+            if (FindObjectOfType<Ball>() != null)
+            {
+                Ball.WakeUp();
+            }
+
             Destroy(gameObject);
         });
     }

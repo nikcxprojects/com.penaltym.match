@@ -3,8 +3,28 @@ using UnityEngine.UI;
 
 public class Game : MonoBehaviour
 {
+    private int score;
+
     [SerializeField] Button pauseBtn;
     [SerializeField] Button settingsBtn;
+
+    [Space(10)]
+    [SerializeField] Text scoreText;
+
+    private void OnEnable()
+    {
+        Player.OnCollided += OnCollidedEvent;
+    }
+
+    private void OnDestroy()
+    {
+        Player.OnCollided -= OnCollidedEvent;
+    }
+
+    private void OnCollidedEvent()
+    {
+        scoreText.text = $"{++score}";
+    }
 
     private void Start()
     {

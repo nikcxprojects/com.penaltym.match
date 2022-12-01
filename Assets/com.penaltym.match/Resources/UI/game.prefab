@@ -54,6 +54,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pauseBtn: {fileID: 2483237301406874403}
   settingsBtn: {fileID: 2483237301917627268}
+  scoreText: {fileID: 2483237302285350734}
 --- !u!1 &2483237301406874401
 GameObject:
   m_ObjectHideFlags: 0
@@ -471,7 +472,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 00
+  m_Text: 0
 --- !u!1 &2483237302358298468
 GameObject:
   m_ObjectHideFlags: 0

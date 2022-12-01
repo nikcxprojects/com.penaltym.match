@@ -717,7 +717,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e7e5104b5c33a36499178a5e2424dec0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  uiManager: {fileID: 1660870784}
 --- !u!1 &1261777096
 GameObject:
   m_ObjectHideFlags: 0
@@ -990,8 +989,8 @@ EdgeCollider2D:
   m_Offset: {x: 0, y: -0.64}
   m_EdgeRadius: 0
   m_Points:
-  - {x: -5.4, y: 0}
-  - {x: 5.4, y: 0}
+  - {x: -100, y: 0}
+  - {x: 100, y: 0}
   m_AdjacentStartPoint: {x: 0, y: 0}
   m_AdjacentEndPoint: {x: 0, y: 0}
   m_UseAdjacentStartPoint: 0

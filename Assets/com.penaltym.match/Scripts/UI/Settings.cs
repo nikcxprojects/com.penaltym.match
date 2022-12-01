@@ -8,8 +8,18 @@ public class Settings : MonoBehaviour
 
     private void Start()
     {
+        if (FindObjectOfType<Ball>() != null)
+        {
+            Ball.Sleep();
+        }
+
         backBtn.onClick.AddListener(() =>
         {
+            if (FindObjectOfType<Ball>() != null)
+            {
+                Ball.WakeUp();
+            }
+
             Destroy(gameObject);
         });
 

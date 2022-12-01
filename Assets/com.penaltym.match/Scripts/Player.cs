@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class Player : MonoBehaviour
@@ -6,6 +7,8 @@ public class Player : MonoBehaviour
     Vector2 target;
 
     const float speed = 6.5f;
+
+    public static Action OnCollided { get; set; } = delegate { };
 
     private void Awake()
     {
@@ -20,6 +23,7 @@ public class Player : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        collision.rigidbody.AddForce(Vector2.up * 8, ForceMode2D.Impulse);
+        collision.rigidbody.AddForce(Vector2.up * 6, ForceMode2D.Impulse);
+        OnCollided?.Invoke();
     }
 }
